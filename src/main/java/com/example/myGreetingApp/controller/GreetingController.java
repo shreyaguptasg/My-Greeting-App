@@ -21,6 +21,12 @@ public class GreetingController {
         return greetingService.getGreetingMessage(firstName, lastName);
     }
 
+    // UC5: Giving id as input to find messages
+    @GetMapping("/{id}")
+    public Greeting getGreetingById(@PathVariable Long id) {
+        return greetingService.findGreetingById(id);
+    }
+
     @PostMapping
     public String postGreeting() {
         return "{\"message\": \"Hello, this is a POST request!\"}";
