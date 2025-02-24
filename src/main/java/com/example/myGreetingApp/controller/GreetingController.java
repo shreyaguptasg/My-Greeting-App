@@ -14,11 +14,6 @@ public class GreetingController {
     }
 
     @GetMapping
-    public String getGreeting() {
-        return greetingService.getGreetingMessage();
-    }
-
-    @GetMapping
     public String getGreeting(
             @RequestParam(value = "firstName", required = false) String firstName,
             @RequestParam(value = "lastName", required = false) String lastName) {
