@@ -18,6 +18,12 @@ public class GreetingController {
         return greetingService.getGreetingMessage();
     }
 
+    @GetMapping
+    public String getGreeting(
+            @RequestParam(value = "firstName", required = false) String firstName,
+            @RequestParam(value = "lastName", required = false) String lastName) {
+        return greetingService.getGreetingMessage(firstName, lastName);
+    }
 
     @PostMapping
     public String postGreeting() {
