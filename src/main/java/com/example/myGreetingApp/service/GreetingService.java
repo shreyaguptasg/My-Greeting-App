@@ -4,6 +4,8 @@ import com.example.myGreetingApp.model.Greeting;
 import com.example.myGreetingApp.repository.GreetingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GreetingService {
 
@@ -40,4 +42,10 @@ public class GreetingService {
         return greetingRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Greeting not found with id: " + id));
     }
+
+    // UC6: Finding list of all messages
+    public List<Greeting> getAllGreetings() {
+        return greetingRepository.findAll();
+    }
+
 }

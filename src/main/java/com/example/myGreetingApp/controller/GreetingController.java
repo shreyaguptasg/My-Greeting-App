@@ -4,6 +4,8 @@ import com.example.myGreetingApp.model.Greeting;
 import com.example.myGreetingApp.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
@@ -30,6 +32,12 @@ public class GreetingController {
     @GetMapping("/{id}")
     public Greeting getGreetingById(@PathVariable Long id) {
         return greetingService.findGreetingById(id);
+    }
+
+    // UC6: Displays list of all messages
+    @GetMapping("/all")
+    public List<Greeting> getAllGreetings() {
+        return greetingService.getAllGreetings();
     }
 
     @PostMapping
