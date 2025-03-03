@@ -60,4 +60,13 @@ public class GreetingService {
         // Save the updated greeting and return it
         return greetingRepository.save(greeting);
     }
+
+    // UC8: Deleting messages using ID
+    public void deleteGreeting(Long id) {
+        if (greetingRepository.existsById(id)) {
+            greetingRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Greeting not found with id: " + id);
+        }
+    }
 }
