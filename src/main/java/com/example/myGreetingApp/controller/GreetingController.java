@@ -45,6 +45,12 @@ public class GreetingController {
         return "{\"message\": \"Hello, this is a PUT request!\"}";
     }
 
+    // UC7: Updating messages taking ID as input
+    @PutMapping("/{id}")
+    public Greeting updateGreeting(@PathVariable Long id, @RequestBody Greeting newGreeting) {
+        return greetingService.updateGreeting(id, newGreeting.getMessage());
+    }
+
     @DeleteMapping
     public String deleteGreeting() {
         return "{\"message\": \"Hello, this is a DELETE request!\"}";
